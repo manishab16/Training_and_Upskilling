@@ -1,0 +1,33 @@
+useradmin@demo:~$ ls -l sales.data
+-rw-rw-r-- 1 useradmin useradmin 0 Oct 29 07:53 sales.data
+useradmin@demo:~$ chmod g+w sales.data
+useradmin@demo:~$ ls -l sales.data
+-rw-rw-r-- 1 useradmin useradmin 0 Oct 29 07:53 sales.data
+useradmin@demo:~$ chmod g-w sales.data
+useradmin@demo:~$ ls -l sales.data
+-rw-r--r-- 1 useradmin useradmin 0 Oct 29 07:53 sales.data
+useradmin@demo:~$ chmod g+wx sales.data
+useradmin@demo:~$ ls -l sales.data
+-rw-rwxr-- 1 useradmin useradmin 0 Oct 29 07:53 sales.data
+
+useradmin@demo:~$ chmod u+rwx,g-x sales.data
+useradmin@demo:~$ ls -l sales.data
+-rwxrw-r-- 1 useradmin useradmin 0 Oct 29 07:53 sales.data
+
+useradmin@demo:~$ mkdir testumask
+useradmin@demo:~$ cd testumask/
+
+useradmin@demo:~/testumask$ umask
+0002
+useradmin@demo:~/testumask$ umask -S
+u=rwx,g=rwx,o=rx
+
+useradmin@demo:~/testumask$ mkdir a-dir
+useradmin@demo:~/testumask$ touch a-file
+
+useradmin@demo:~/testumask$ ls -l
+total 4
+drwxrwxr-x 2 useradmin useradmin 4096 Oct 29 08:26 a-dir
+-rw-rw-r-- 1 useradmin useradmin    0 Oct 29 08:26 a-file
+
+

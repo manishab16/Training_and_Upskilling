@@ -1,0 +1,31 @@
+ pwd
+/home/useradmin
+useradmin@demo:~$ cd linux/
+useradmin@demo:~/linux$ pwd
+/home/useradmin/linux
+useradmin@demo:~/linux$ cd ..
+useradmin@demo:~$ cd ..useradmin@demo:/home$ ls
+useradmin
+
+useradmin@demo:/home$ cd useradmin/
+useradmin@demo:~$ pwd
+/home/useradmin
+
+useradmin@demo:~$ cd /var/tmp
+useradmin@demo:/var/tmp$ pwd
+/var/tmp
+
+useradmin@demo:/var/tmp$ cd -
+/home/useradmin
+
+
+useradmin@demo:~/linux$ mkdir dir1
+useradmin@demo:~/linux$ mkdir dir1/dir2/dir3
+mkdir: cannot create directory ‘dir1/dir2/dir3’: No such file or directory
+useradmin@demo:~/linux$ mkdir -p dir1/dir2/dir3
+useradmin@demo:~/linux$ rmdir dir1
+rmdir: failed to remove 'dir1': Directory not empty
+useradmin@demo:~/linux$ rm -rf dir1
+
+ls dir
+ls: cannot access 'dir': No such file or directory

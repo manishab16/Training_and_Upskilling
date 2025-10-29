@@ -1,0 +1,62 @@
+useradmin@demo:~/linux$ find
+.
+./dir1
+./dir1/test
+./dir2
+./dir3
+
+useradmin@demo:~/linux$ find /usr/sbin -iname networkmanager
+
+useradmin@demo:~/linux$ find /usr/bin -name "*v"
+/usr/bin/faked-sysv
+/usr/bin/mv
+/usr/bin/iconv
+/usr/bin/env
+/usr/bin/delv
+/usr/bin/setpriv
+/usr/bin/gcov
+/usr/bin/preconv
+/usr/bin/gpgv
+/usr/bin/fakeroot-sysv
+/usr/bin/piconv
+/usr/bin/grub-editenv
+/usr/bin/printenv
+/usr/bin/rev
+/usr/bin/x86_64-linux-gnu-gcov
+
+useradmin@demo:~/linux$ find /home/useradmin -mtime +05 -mtime -10 
+/home/useradmin/.local
+/home/useradmin/.local/bin
+/home/useradmin/.local/bin/dog
+/home/useradmin/.local/bin/dogshell
+/home/useradmin/.local/bin/dogwrap
+/home/useradmin/.local/bin/dogshellwrap
+/home/useradmin/.local/lib
+/home/useradmin/.local/lib/python3.12
+/home/useradmin/.local/lib/python3.12/site-packages
+/home/useradmin/.local/lib/python3.12/site-packages/datadog
+/home/useradmin/.local/lib/python3.12/site-packages/datadog/__pycache__
+/home/useradmin/.local/lib/python3.12/site-packages/datadog/__pycache__/__init__.cpython-312.pyc
+/home/useradmin/.local/lib/python3.12/site-packages/datadog/__pycache__/version.cpython-312.pyc
+/home/useradmin/.local/lib/python3.12/site-packages/datadog/__init__.py
+/home/useradmin/.local/lib/python3.12/site-packages/datadog/dogshell
+/home/useradmin/.local/lib/python3.12/site-packages/datadog/dogshell/host.py
+/home/useradmin/.local/lib/python3.12/site-packages/datadog/dogshell/service_check.py
+
+
+useradmin@demo:~/linux$ find /usr -size +1M
+/usr/bin/gpg
+/usr/bin/bpftrace
+/usr/bin/perl5.38.2
+/usr/bin/bash
+/usr/bin/vim.basic
+/usr/bin/x86_64-linux-gnu-dwp
+/usr/bin/x86_64-linux-gnu-ld.gold
+/usr/bin/tcpdump
+/usr/bin/udevadm
+
+useradmin@demo:~/linux$ uptime
+ 08:47:18 up 5 days,  2:49,  1 user,  load average: 0.02, 0.02, 0.00
+
+
+

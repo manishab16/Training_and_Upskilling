@@ -1,0 +1,42 @@
+useradmin@demo:~/linux$ cat cat.txt
+hello
+wolrd
+knock knock
+this is first line
+roses are red
+this is last line
+useradmin@demo:~/linux$ head -2 cat.txt
+hello
+wolrd
+useradmin@demo:~/linux$ tail cat.txt
+hello
+wolrd
+knock knock
+this is first line
+roses are red
+this is last line
+useradmin@demo:~/linux$ tail -1 cat.txt
+this is last line
+
+
+vi cat.txt
+
+ 1 hello hello
+  2 Wolrd
+  3 knock knock
+  4 this is first line
+  5 roses are red
+  6 this is last line
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+:set nu
+
+
