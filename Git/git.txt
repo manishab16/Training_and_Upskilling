@@ -1,0 +1,94 @@
+Git - 
+Git maintains a copy of every file in your project at any time.
+Every time you modify any file in any way and commit your changes
+Git will track it and both versions are never lost.
+
+
+If multiple people are working on the same project we need a way to retrieve their changes quickly and easily.
+Solving conflicts. It sometimes happens that two or more people change the same file at the same time.
+When this file is retrieved, there is a conflict because the system cannot know which version of the file is correct.
+Git gives us a way to analyze and solve these conflicts.
+
+
+Creating a local repository - 
+Git clone creates a local git managed project based on the link provided.
+Git remote -V displays the link to the remote repository.
+
+
+commit - 
+Whenever we make changes to our repository and instruct Git to track those changes through a command
+each commit has a unique identification hash key
+
+commands-
+git add .
+git add adds all the files that we have changed to the staging area.
+
+git commit 
+allow us to create commit 
+
+git log
+gives overview of commit
+
+
+staging
+Git add . simply adds all changed files to staging
+Staging one or more files simply means marking them to be committed.
+
+git add <filename>
+adds one or more files to staging
+
+git reset <filename>
+removes one or more files from staging 
+
+git status
+print repositiry status
+
+
+Branches -
+A branch is simply a series of commits that can be manipulated independently.
+Git maintains a master branch that is in some sense the source of truth for the project, meaning it is the code that is currently the most up to date.
+Any commit on a branch can be the origin commit where a new branch can be initiated at that point.
+Any commit on master will not be seen on the second branch and any commit on the second branch will not affect master.
+
+git branch
+display available branches
+
+git branch <branch name>
+create new branch
+
+git checkout <branch name>
+switched to different branch
+
+
+git show <hash>
+gives extensive commit info
+
+git show --name-only <hash>
+gives shorthandcommit info
+
+git reflog
+gives info about all commits on all branches
+
+
+push and pull -
+Git push sends all our local changes to the GitHub repository
+
+git pull 
+retrives commits fro cebtral repostory to local repository
+
+
+ Undo and redo changes
+ We use the revert command to create a new commit that undoes the changes of a certain commit.
+ 
+ reset
+ It resets the current branch to show only commits up to the one you indicate.
+That means that all subsequent commits are disregarded.
+
+git revert
+create a new commit to undo changes
+
+git reset --soft
+removes commits from history keeps chnages
+
+git reset --hard
+removes commits from history removes changes
