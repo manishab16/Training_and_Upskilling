@@ -1,0 +1,461 @@
+seaching files using pipes
+grep pattern file - Search for pattern in file.
+
+grep option
+grep -i - Perform a search, ignoring case.
+grep -c - Count the number of occurrences in a file.
+grep -n - Precede output with line numbers from the file
+grep -v pattern file - Invert match. Return lines from file that do not match pattern.
+
+
+useradmin@demo:~/linux$ cat secret
+tags: credentials
+site : facebook.com
+user : jason
+pass : Abee!
+tags : credentials
+
+new last line
+
+useradmin@demo:~/linux$ grep user secret
+user : jason
+
+useradmin@demo:~/linux$ grep o secret
+site : facebook.com
+user : jason
+
+useradmin@demo:~/linux$ grep -v o secret
+tags: credentials
+pass : Abee!
+tags : credentials
+
+new last line
+
+useradmin@demo:~/linux$ grep User secret
+
+useradmin@demo:~/linux$ grep -i User secret
+user : jason
+
+useradmin@demo:~/linux$ grep -ci User secret
+1
+useradmin@demo:~/linux$ grep -ni user secret
+3:user : jason
+useradmin@demo:~/linux$ cat -n secret
+     1  tags: credentials
+     2  site : facebook.com
+     3  user : jason
+     4  pass : Abee!
+     5  tags : credentials
+     6
+     7  new last line
+	 
+
+Pipes 
+| Pipe symbol
+command-output | command-input
+
+useradmin@demo:~/linux$ cat /etc/passwd | less
+useradmin@demo:~/linux$ less /etc/passwd
+
+
+copying files and over network
+scp : secure copy
+SFTP : SSH file transfer protocol
+
+commandline  SCP clinets
+scp
+sftp
+Putty secure copy client - pscp.exe
+Putty secure File transfer client - psftp.exe
+
+sftp useradmin@demo
+sftp> pwd
+Remote working directory: /home/useradmin
+sftp> ls
+Music        datadog      datadog-env  linux        myagent      sales.data
+snap         test.sh      test2.ah     test3.sh     testumask
+sftp> lpwd
+Local working directory: /home/useradmin/linux
+sftp> lls
+a   bb   cot   dir2  f          g      notes     out.err  secret.bak
+aa  c    d     dir3  files.txt  h      out       output   sorted_file.txt
+b   cam  dir1  e     firstdir   music  out.both  secret   tps.ta
+
+sftp> rm a
+Removing /home/useradmin/a
+sftp> ls
+Music        datadog      datadog-env  linux        myagent      sales.data
+snap         test.sh      test2.ah     test3.sh     testumask
+
+	 
+scp a useradmin@demo:/tmp/
+useradmin@demo's password:
+a                                             100%    0     0.0KB/s   00
+
+ssh useradmin@demo
+useradmin@demo's password:
+useradmin@demo:~$ ls /tmp/
+0b8a7b1d2dc8ac60
+4c74acc0bb44afe3
+5faf394399cb28e8
+6f50680b9a99dc28
+73f6a2131c422586
+75039fb0722c0c30
+a	 
+
+
+Customizing the Shell Prompt
+useradmin@demo:~$ echo $PS1
+\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
+
+useradmin@demo:~$ pwd
+/home/useradmin
+
+useradmin@demo:~$ cd /var/log
+useradmin@demo:/var/log$ PS1="\d \t \h \W>\$ "
+Thu Oct 30 08:31:22 demo log>$ pwd
+/var/log
+
+Thu Oct 30 08:32:27 demo log>$ cd
+Thu Oct 30 08:32:33 demo ~>$ vi  .bash_profile
+Thu Oct 30 08:34:08 demo ~>$ exit
+logout
+Connection to demo closed.
+
+
+ssh useradmin@demo
+useradmin@demo's password:
+Last login: Thu Oct 30 08:20:42 2025 from 10.0.0.4
+
+promt enter hit -	 
+useradmin@demo:~$ PS1="\t\n[\h \w]\$ "
+08:38:04
+[demo ~]$
+08:38:29
+
+
+shell alias -
+useradmin@demo:~/linux$ alias
+alias cls='clear'
+
+Environment variables -
+useradmin@demo:~$ printenv
+SHELL=/bin/bash
+PWD=/home/useradmin
+LOGNAME=useradmin
+XDG_SESSION_TYPE=tty
+HOME=/home/useradmin
+
+useradmin@demo:~$ printenv PATH
+/home/useradmin/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+useradmin@demo:~$ echo $PATH
+/home/useradmin/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+useradmin@demo:~$ date
+Thu Oct 30 09:04:33 UTC 2025
+useradmin@demo:~$ export TZ="US/Pacific"
+useradmin@demo:~$ date
+Thu Oct 30 02:05:10 PDT 2025
+useradmin@demo:~$ unset TZ
+useradmin@demo:~$ date
+Thu Oct 30 09:05:30 UTC 2025
+useradmin@demo:~$ vi .bash_profile
+useradmin@demo:~$ exit
+logout
+
+ssh useradmin@demo
+useradmin@demo's password:
+Last login: Thu Oct 30 08:34:46 2025 from 10.0.0.4
+
+
+Processes and Job Control
+Common ps commands:
+ps -e - Display all processes.
+ps -ef - Display all processes.
+ps -eH - Display a process tree.
+ps -e --forest - Display a process tree.
+ps -u username - Display processes running as username.
+
+
+useradmin@demo:~$ ps
+    PID TTY          TIME CMD
+1941985 pts/0    00:00:00 bash
+1975827 pts/0    00:00:00 grep
+2003438 pts/0    00:00:00 ps
+
+useradmin@demo:~$ ps -p 1941985
+    PID TTY          TIME CMD
+1941985 pts/0    00:00:00 bash
+
+useradmin@demo:~$ ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+useradm+ 1941985 1941984  0 05:28 pts/0    00:00:00 -bash
+useradm+ 1975827 1941985  0 07:42 pts/0    00:00:00 grep --color=auto -i blues.m
+useradm+ 2003523 1941985  0 09:14 pts/0    00:00:00 ps -f
+useradmin@demo:~$ ps -e
+    PID TTY          TIME CMD
+      1 ?        00:00:21 systemd
+      2 ?        00:00:00 kthreadd
+      3 ?        00:00:00 pool_workqueue_release
+      4 ?        00:00:00 kworker/R-rcu_gp
+      5 ?        00:00:00 kworker/R-sync_wq
+      6 ?        00:00:00 kworker/R-kvfree_rcu_reclaim
+      7 ?        00:00:00 kworker/R-slub_flushwq
+      8 ?        00:00:00 kworker/R-netns
+     10 ?        00:00:00 kworker/0:0H-events_highpri
+     13 ?        00:00:00 kworker/R-mm_percpu_wq
+     14 ?        00:00:00 rcu_tasks_rude_kthread
+     15 ?        00:00:00 rcu_tasks_trace_kthread
+     16 ?        00:00:01 ksoftirqd/0
+     17 ?        00:00:33 rcu_sched
+     18 ?        00:00:00 rcu_exp_par_gp_kthread_worker/0
+     19 ?        00:00:00 rcu_exp_gp_kthread_worker
+     20 ?        00:00:01 migration/0
+     21 ?        00:00:00 idle_inject/0
+     22 ?        00:00:00 cpuhp/0
+     23 ?        00:00:00 cpuhp/2
+     24 ?        00:00:00 idle_inject/2
+     25 ?        00:00:02 migration/2
+     26 ?        00:00:02 ksoftirqd/2
+     28 ?        00:00:00 kworker/2:0H-events_highpri
+     29 ?        00:00:00 cpuhp/1
+     30 ?        00:00:00 idle_inject/1
+     31 ?        00:00:02 migration/1
+     32 ?        00:00:02 ksoftirqd/1
+     34 ?        00:00:00 kworker/1:0H-events_highpri
+     35 ?        00:00:00 cpuhp/3
+     36 ?        00:00:00 idle_inject/3
+     37 ?        00:00:01 migration/3
+     38 ?        00:00:02 ksoftirqd/3
+     40 ?        00:00:00 kworker/3:0H-events_highpri
+     41 ?        00:00:00 kdevtmpfs
+     42 ?        00:00:00 kworker/R-inet_frag_wq
+     43 ?        00:00:00 kauditd
+     44 ?        00:00:00 khungtaskd
+     45 ?        00:00:00 oom_reaper
+     48 ?        00:00:00 kworker/R-writeback
+     49 ?        00:00:13 kcompactd0
+     50 ?        00:00:00 ksmd
+     51 ?        00:00:05 khugepaged
+     52 ?        00:00:00 kworker/R-kintegrityd
+     53 ?        00:00:00 kworker/R-kblockd
+     54 ?        00:00:00 kworker/R-blkcg_punt_bio
+     55 ?        00:00:00 irq/9-acpi
+     59 ?        00:00:00 kworker/R-tpm_dev_wq
+     60 ?        00:00:00 kworker/R-ata_sff
+     61 ?        00:00:00 kworker/R-md
+     62 ?        00:00:00 kworker/R-md_bitmap
+     63 ?        00:00:00 kworker/R-edac-poller
+     64 ?        00:00:00 kworker/R-hv_vmbus_con
+     65 ?        00:00:00 kworker/R-hv_vmbus_rescind
+     66 ?        00:00:00 kworker/R-hv_pri_chan
+     67 ?        00:00:00 kworker/R-hv_sub_chan
+     68 ?        00:00:00 kworker/R-devfreq_wq
+     69 ?        00:00:00 watchdogd
+     70 ?        00:00:00 kworker/0:1H-kblockd
+     71 ?        00:00:00 kswapd0
+     72 ?        00:00:00 ecryptfs-kthread
+     73 ?        00:00:00 kworker/R-kthrotld
+     74 ?        00:00:00 kworker/R-nfit
+     75 ?        00:00:00 scsi_eh_0
+     76 ?        00:00:00 kworker/R-scsi_tmf_0
+     77 ?        00:00:00 kworker/R-nvme-wq
+     78 ?        00:00:00 kworker/R-nvme-reset-wq
+     79 ?        00:00:00 kworker/R-nvme-delete-wq
+     80 ?        00:00:00 kworker/R-nvme-auth-wq
+     84 ?        00:00:00 kworker/R-mld
+     85 ?        00:00:00 kworker/3:1H-kblockd
+     86 ?        00:00:00 kworker/R-ipv6_addrconf
+     93 ?        00:00:11 hv_balloon
+     94 ?        00:00:00 kworker/R-kstrp
+     96 ?        00:00:00 kworker/u17:0
+    110 ?        00:00:00 kworker/2:1H-kblockd
+    111 ?        00:00:02 jbd2/nvme0n1p1-8
+    112 ?        00:00:00 kworker/R-ext4-rsv-conversion
+    120 ?        00:00:00 kworker/1:1H-kblockd
+    367 ?        00:01:40 systemd-journal
+    634 ?        00:00:00 kworker/R-kmpathd
+    635 ?        00:00:00 kworker/R-kmpath_handlerd
+    768 ?        00:00:34 multipathd
+    809 ?        00:00:00 systemd-udevd
+    831 ?        00:00:00 psimon
+    992 ?        00:00:00 kworker/R-cryptd
+   1151 ?        00:01:31 hv_kvp_daemon
+   1393 ?        00:00:00 jbd2/nvme0n1p16-8
+   1394 ?        00:00:00 kworker/R-ext4-rsv-conversion
+   1753 ?        00:00:00 kworker/R-tls-strp
+   1756 ?        00:00:00 kworker/R-mlx5_cmd_04bc:00:02.0
+   1757 ?        00:00:00 kworker/R-mlx5_health04bc:00:02.0
+   1758 ?        00:00:00 kworker/R-mlx5_page_allocator
+   1759 ?        00:00:00 kworker/R-mlx5_events
+   1760 ?        00:00:00 ptp1
+   1761 ?        00:00:00 kworker/R-mlx5_fc
+   1762 ?        00:00:00 kworker/R-mlx5_hv_vhca
+   1763 ?        00:00:00 kworker/R-mlx5e
+   1764 ?        00:00:00 kworker/R-mlx5e_arfs
+   1784 ?        00:00:00 kworker/R-ib-comp-wq
+   1785 ?        00:00:00 kworker/R-ib-comp-unb-wq
+   1786 ?        00:00:00 kworker/R-ib_mcast
+   1787 ?        00:00:00 kworker/R-ib_nl_sa_wq
+   1788 ?        00:00:00 kworker/R-mkey_cache
+   1975 ?        00:00:34 systemd-resolve
+   2280 ?        00:00:00 systemd-network
+   2555 ?        01:05:05 agent
+   2561 ?        00:02:37 installer
+   2574 ?        00:22:51 trace-agent
+   2581 ?        00:00:07 dbus-daemon
+   2648 ?        00:00:00 networkd-dispat
+   2664 ?        00:00:10 polkitd
+   2707 ?        00:00:01 systemd-logind
+   2724 ?        00:00:03 udisksd
+   2737 ?        00:00:00 python3
+   2898 ?        00:00:00 cron
+   3056 ?        00:31:38 unattended-upgr
+   3096 ?        00:00:21 rsyslogd
+   3229 ?        00:02:43 chronyd
+   3246 ?        00:00:00 chronyd
+   3251 ?        00:00:00 ModemManager
+   3561 ttyS0    00:00:00 agetty
+   3634 tty1     00:00:00 agetty
+   4148 ?        00:37:18 python3
+   8488 ?        00:00:23 sshd
+  40846 ?        00:00:00 uuidd
+1626222 ?        00:00:04 snapd
+1937305 ?        00:00:01 kworker/0:0-events
+1941201 ?        00:00:00 sshd
+1941327 ?        00:00:00 psimon
+1941329 ?        00:00:00 systemd
+1941337 ?        00:00:00 (sd-pam)
+1941984 ?        00:00:05 sshd
+1941985 pts/0    00:00:00 bash
+1947795 ?        00:00:00 kworker/3:2-events
+1971009 ?        00:00:00 kworker/2:1-events
+1975827 pts/0    00:00:00 grep
+1987442 ?        00:00:00 kworker/0:3
+1990753 ?        00:00:00 kworker/u16:3-flush-259:0
+1990755 ?        00:00:00 kworker/2:3-mm_percpu_wq
+1993950 ?        00:00:00 kworker/u16:4-flush-259:0
+1995465 ?        00:00:00 kworker/1:1-
+
+for specific user
+useradmin@demo:~$ ps -fu useradmin
+UID          PID    PPID  C STIME TTY          TIME CMD
+useradm+ 1941329       1  0 05:28 ?        00:00:00 /usr/lib/systemd/systemd --u
+useradm+ 1941337 1941329  0 05:28 ?        00:00:00 (sd-pam)
+useradm+ 1941984 1941201  0 05:28 ?        00:00:05 sshd: useradmin@pts/0
+useradm+ 1941985 1941984  0 05:28 pts/0    00:00:00 -bash
+useradm+ 1975827 1941985  0 07:42 pts/0    00:00:00 grep --color=auto -i blues.m
+useradm+ 2004192 1941985  0 09:17 pts/0    00:00:00 ps -fu useradmin
+
+useradmin@demo:~/linux$ jobs
+[1]+  Stopped                 grep --color=auto -i blues.mp3  (wd: ~/linux/music)
+[2]-  Stopped                 htop  (wd: ~)
+useradmin@demo:~/linux$ fg
+grep --color=auto -i blues.mp3  (wd: ~/linux/music)
+
+
+
+scheduling repeated job with cron
+cron - A time based job scheduling service. This service is typically started when the system boots.
+crontab - A program to create, read, update, and delete your job schedules. 
+
+
+useradmin@demo:~$ crontab -l
+no crontab for useradmin
+useradmin@demo:~$ vi my-cron
+useradmin@demo:~$ cat my-cron
+#run every monday at 7:00
+0 7 * * 1 /opy/sales/bin/weekly-report
+
+useradmin@demo:~$ crontab my-cron
+useradmin@demo:~$ crontab -l
+#run every monday at 7:00
+0 7 * * 1 /opy/sales/bin/weekly-report
+
+
+
+Switching Users and Running Commands as Others
+useradmin@demo:~$ whoami
+useradmin
+
+useradmin@demo:~$ sudo -l
+Matching Defaults entries for useradmin on demo:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+    use_pty
+
+User useradmin may run the following commands on demo:
+    (ALL : ALL) ALL
+    (ALL) NOPASSWD: ALL
+	
+
+useradmin@demo:~$ sudo -s
+root@demo:/home/useradmin# whoami
+root
+root@demo:/home/useradmin# exit
+exit
+useradmin@demo:~$ sudo su
+root@demo:/home/useradmin# exit
+exit
+useradmin@demo:~$ sudo su -
+root@demo:~# pwd
+/root
+root@demo:~# exit
+logout
+
+
+shell history and tab completion
+useradmin@demo:~$ history
+  1  ls
+    2  mkdir datadog
+    3  cd datadog/
+    4  ls
+    5  ls
+
+useradmin@demo:~$ !1
+ls
+Music    datadog-env  my-cron  sales.data  test.sh   test3.sh
+datadog  linux        myagent  snap        test2.ah 
+
+useradmin@demo:~$ echo $HISTSIZE
+1000
+
+useradmin@demo:~$ !!
+echo $HISTSIZE
+1000
+
+useradmin@demo:~/linux$ ls files.txt sorted_files.txt notes
+files.txt
+
+notes:
+ab.txt  c.txt  can.txt  cat.txt
+
+
+useradmin@demo:~/linux$ !!
+files.txt
+
+notes:
+ab.txt  c.txt  can.txt  cat.txt
+
+useradmin@demo:~/linux$ echo !:2
+echo sorted_files.txt
+sorted_files.txt	
+
+
+previous commands -
+useradmin@demo:~/linux$ echo !$
+echo notes
+notes
+
+useradmin@demo:~/linux$ echo !^
+echo notes
+notes
+
+
+useradmin@demo:~/linux$ echo alpha bravo charlie
+alpha bravo charlie
+
+useradmin@demo:~/linux$ echo !^ !l:2 delta !l:0
+echo alpha sorted_files.txt delta ls
+alpha sorted_files.txt delta ls
+
+
