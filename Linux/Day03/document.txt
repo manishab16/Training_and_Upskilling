@@ -1,0 +1,195 @@
+root@linux:~# lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda       8:0    0   30G  0 disk
+├─sda1    8:1    0   29G  0 part /
+├─sda14   8:14   0    4M  0 part
+├─sda15   8:15   0  106M  0 part /boot/efi
+└─sda16 259:0    0  913M  0 part /boot
+sdb       8:16   0   16G  0 disk
+└─sdb1    8:17   0   16G  0 part /mnt
+sr0      11:0    1  628K  0 rom
+root@linux:~# lsblk -p
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+/dev/sda       8:0    0   30G  0 disk
+├─/dev/sda1    8:1    0   29G  0 part /
+├─/dev/sda14   8:14   0    4M  0 part
+├─/dev/sda15   8:15   0  106M  0 part /boot/efi
+└─/dev/sda16 259:0    0  913M  0 part /boot
+/dev/sdb       8:16   0   16G  0 disk
+└─/dev/sdb1    8:17   0   16G  0 part /mnt
+/dev/sr0      11:0    1  628K  0 rom
+root@linux:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        29G  1.6G   27G   6% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           1.6G 1008K  1.6G   1% /run
+tmpfs           5.0M     0  5.0M   0% /run/lock
+efivarfs        128K   37K   87K  30% /sys/firmware/efi/efivars
+/dev/sda16      881M   61M  759M   8% /boot
+/dev/sda15      105M  6.2M   99M   6% /boot/efi
+/dev/sdb1        16G   28K   15G   1% /mnt
+tmpfs           790M   12K  790M   1% /run/user/1000
+
+root@linux:~# fdisk -l
+Disk /dev/sda: 30 GiB, 32213303296 bytes, 62916608 sectors
+Disk model: Virtual Disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: gpt
+Disk identifier: 6C4E8ECD-CA47-4732-966E-3C5DAAF4385C
+
+Device       Start      End  Sectors  Size Type
+/dev/sda1  2099200 62916574 60817375   29G Linux filesystem
+/dev/sda14    2048    10239     8192    4M BIOS boot
+/dev/sda15   10240   227327   217088  106M EFI System
+/dev/sda16  227328  2097152  1869825  913M Linux extended boot
+
+Partition table entries are not in disk order.
+
+
+Disk /dev/sdb: 16 GiB, 17179869184 bytes, 33554432 sectors
+Disk model: Virtual Disk
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: dos
+Disk identifier: 0x97e590f2
+
+Device     Boot Start      End  Sectors Size Id Type
+/dev/sdb1        2048 33552383 33550336  16G  7 HPFS/NTFS/exFAT
+
+
+Managing users and group -
+
+passwords are stored in /etc/shadow  -
+1.encrypted password used to be stored in /etc/passwd
+2./etc/passwd is readable by everyone
+
+UID's - user ids 
+the root account is always UID 0
+UID's are unique numbers
+
+GID -
+the GID listed in the /etc/passwd for is the default group of account
+New files belong to a user's default group
+users can switch groups by using the newgrp command
+
+home directory -
+upon login the user is placed in there home directory
+if that directory doesnt exist, they are placed in "/".
+
+Shell -
+The shell will be executed when a user logs in 
+A list of avilable shells are in /etc/shells
+The shell doesnt have to be a shell
+shells can be commandline applications
+
+useradd -
+useradd[options] username
+-c "comment"    comments for account
+-m              create the home directory
+-s /shell/path  path to users shell
+
+modify existing account - usermod
+usermod[options] username
+
+root@demo:~# groupadd writers
+root@demo:~# groupadd tv
+root@demo:~# groupadd movie
+root@demo:~# tail -3 /etc/group
+writers:x:1001:
+tv:x:1002:
+movie:x:1003:
+root@demo:~# useradd -c "useradmin" -g writers -G tv -m -s /bin/bash ccuse
+root@demo:~# passwd ccuse
+New password:
+Retype new password:
+passwd: password updated successfully
+root@demo:~# groups ccuse
+ccuse : writers tv
+root@demo:~# tail -3 /etc/group
+writers:x:1001:
+tv:x:1002:ccuse
+movie:x:1003:
+
+root@demo:~# grep 1001 /etc/passwd
+ccuse:x:1001:1001:useradmin:/home/ccuse:/bin/bash
+
+summary-
+group information is stored in /etc/group
+create group with groupadd
+delete group with groupdel
+modify group with groupmod
+To view group mebership use groups
+
+
+
+Networking -
+● TCP/IP
+○ Used for network communications
+○ TCP = Transmission Control Protocol
+○ IP = Internet Protocol
+● TCP - controls data exchange
+● IP - sends data from one device to another
+● Hosts
+○ devices on a network that have an IP address
+
+IP networking - 
+Network address
+Host address
+
+
+Network ports -
+when a service starts it binds itself to a port
+ports 1-1023 are well-known ports
+ -22 - ssh
+ -25 -smtp
+ -80 - http
+ -143 - IMAP
+ -389 - LDAP
+ -443 - HTTPS
+
+netstat commands
+-n  display numeric address and ports
+-i  display list of network interfaces
+-r  displays the route table (netstat -rn)
+-p  dispalys the PID and program used
+-l  display listening sockets (netstat -nlp)
+-t  limit the output to TCP (netstat -ntlp)
+-u  limit the output to UDP (netstat -nulp)
+
+useradmin@demo:~$ netstat -i
+Kernel Interface table
+Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+enP65337s1       1500   102558      0      0 0        113680      0      0      0 BMsRU
+eth0             1500    97634      0      0 0        106657      0      0      0 BMRU
+lo              65536   226337      0      0 0        226337      0      0      0 LRU
+
+useradmin@demo:~$ netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         10.0.0.1        0.0.0.0         UG        0 0          0 eth0
+10.0.0.0        0.0.0.0         255.255.255.0   U         0 0          0 eth0
+10.0.0.1        0.0.0.0         255.255.255.255 UH        0 0          0 eth0
+168.63.129.16   10.0.0.1        255.255.255.255 UGH       0 0          0 eth0
+169.254.169.254 10.0.0.1        255.255.255.255 UGH       0 0          0 eth0 
+ 
+
+ Special Permission Modes
+ Setuid - when process 	is started its runs using the starting users UID and GID
+ setuid - Set User Id upon execution
+ 
+ Shell scripting
+ contains a series of commands
+ 
+script.sh
+ #!/bin/bash
+ echo "scripting is fun"
+ 
+$chmod 755 script.sh
+$ ./script.sh
+scripting is fun!
+ 
+ 
+
