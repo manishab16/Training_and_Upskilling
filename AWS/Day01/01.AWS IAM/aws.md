@@ -72,19 +72,19 @@ IAM roles for services
 
 
 IAM roles hands on
-![App Screenshot](images/image11.png)
+![App Screenshot](images/images11.png)
 
 
-![App Screenshot](images/image12.png)
+![App Screenshot](images/images12.png)
 
 
-![App Screenshot](images/image13.png)
+![App Screenshot](images/images13.png)
 
 
-![App Screenshot](images/image14.png)
+![App Screenshot](images/images14.png)
 
 
-![App Screenshot](images/image15.png)
+![App Screenshot](images/images15.png)
 
 
 IAM security tools
@@ -121,5 +121,21 @@ IAM details
 - AWS SDK: manage your AWS services using a programming language
 - Access Keys: access AWS using the CLI or SDK 
 - Audit: IAM Credential Reports & IAM Access Advisor
+
+
+
+AWS Budget setup
+![App Screenshot](images/image18.png)
+
+
+![App Screenshot](images/image19.png)
+
+
+Monthly cost
+![App Screenshot](images/image20.png)
+
+
+
+![App Screenshot](images/image21.png)
 
 
