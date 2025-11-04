@@ -30,4 +30,4 @@ Policy: Allow s3:PutObject on your bucket
 Result: EC2 instance can upload logs securely without storing credentials.
 
 
-C:\aws-project\AWS\Training_and_Upskilling\AWS\Day01\01.AWS IAM\images\image.png
+IAM User

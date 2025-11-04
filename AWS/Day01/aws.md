@@ -1,8 +1,8 @@
-**What is AWS**
-AWS stands for Amazon web services and it is a cloud provider.
-It provides you with servers and services that you can use on demand and scale easily.
+# What is aws
+• AWS stands for Amazon web services and it is a cloud provider.
+• It provides you with servers and services that you can use on demand and scale easily.
 
-**AWS Regions **
+# AWS Regions 
 • AWS has Regions all around the world 
 • Names can be us-east-1, eu-west-3
 • Most AWS services are region-scope
