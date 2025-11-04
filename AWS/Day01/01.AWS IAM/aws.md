@@ -28,3 +28,5 @@ Result: EC2 instance can upload logs securely without storing credentials.
 
 IAM User
 ![App Screenshot](images/image.png)
+
+![App Screenshot](images/image2.png)
