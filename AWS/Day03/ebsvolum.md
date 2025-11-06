@@ -242,3 +242,11 @@ create targetgroup
 
 
 ![App Screenshot](images/image17.png)
+
+
+
+stop ec2first instance targetgroup shows unused
+![App Screenshot](images/image18.png)
+
+
+![App Screenshot](images/image19.png)
