@@ -250,3 +250,11 @@ stop ec2first instance targetgroup shows unused
 
 
 ![App Screenshot](images/image19.png)
+
+
+
+add inboundrule - security group
+![App Screenshot](images/image20.png)
+
+
+![App Screenshot](images/image21.png)
