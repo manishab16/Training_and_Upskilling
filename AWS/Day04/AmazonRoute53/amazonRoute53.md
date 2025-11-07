@@ -166,3 +166,51 @@ Health checks
 
 
 ![App Screenshot](images/image33.png)
+
+
+
+Elastic Beanstalk
+- Elastic Beanstalk is a developer centric view of deploying an application on AWS
+- It uses all the component’s we’ve seen before: EC2, ASG, ELB, RDS
+- Managed service
+    - Automatically handles capacity provisioning, load balancing, scaling, application health monitoring, instance configuration
+    - Just the application code is the responsibility of the developer
+
+![App Screenshot](images/image34.png)
+
+
+![App Screenshot](images/image35.png)
+
+
+![App Screenshot](images/image36.png)
+
+
+![App Screenshot](images/image37.png)
+
+
+![App Screenshot](images/image38.png)
+
+
+
+![App Screenshot](images/image39.png)
+
+
+
+![App Screenshot](images/image40.png)
+
+
+![App Screenshot](images/image41.png)
+
+
+
+![App Screenshot](images/image42.png)
+
+
+
+![App Screenshot](images/image43.png)
+
+
+![App Screenshot](images/image44.png)
+
+
+![App Screenshot](images/image45.png)
