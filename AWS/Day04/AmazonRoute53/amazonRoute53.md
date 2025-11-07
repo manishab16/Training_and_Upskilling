@@ -107,6 +107,62 @@ Route 53 – Hosted Zones
 ![App Screenshot](images/image22.png)
 
 
+Route 53 – Records TTL (Time To Live)
+- High TTL – e.g., 24 hr
+- Less traffic on Route 53
+- Possibly outdated records
+- Low TTL – e.g., 60 sec.
+- More traffic on Route 53 ($$)
+- Records are outdated for less time
+- Easy to change records
+![App Screenshot](images/image23.png)
+
+
+![App Screenshot](images/image24.png)
 
 
 
+CNAME vs Alias
+- AWS Resources (Load Balancer, CloudFront...) expose an AWS hostname: 
+- lb1-1234.us-east-2.elb.amazonaws.com and you want myapp.mydomain.com 
+- CNAME:
+    - Points a hostname to any other hostname. (app.mydomain.com => blabla.anything.com)
+    - ONLY FOR NON ROOT DOMAIN (aka. something.mydomain.com) 
+- Alias: 
+    - Points a hostname to an AWS Resource (app.mydomain.com => blabla.amazonaws.com) 
+    - Works for ROOT DOMAIN and NON ROOT DOMAIN (aka mydomain.com) 
+    - Free of charge 
+    - Native health check
+
+
+Route 53 – Alias Records
+- Maps a hostname to an AWS resource
+- An extension to DNS functionality
+- Automatically recognizes changes in the resource’s IP addresses   
+
+![App Screenshot](images/image25.png)
+
+
+![App Screenshot](images/image26.png)
+
+
+![App Screenshot](images/image27.png)
+
+Alias
+![App Screenshot](images/image28.png)
+
+
+![App Screenshot](images/image29.png)
+
+
+![App Screenshot](images/image30.png)
+
+
+Health checks
+![App Screenshot](images/image31.png)
+
+
+![App Screenshot](images/image32.png)
+
+
+![App Screenshot](images/image33.png)
