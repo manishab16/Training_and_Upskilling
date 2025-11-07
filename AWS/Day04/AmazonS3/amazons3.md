@@ -83,3 +83,96 @@ S3 Bucket Policies
 
 
 website -
+![App Screenshot](images/image17.png)
+
+
+![App Screenshot](images/image18.png)
+
+
+![App Screenshot](images/image19.png)
+
+
+![App Screenshot](images/image20.png)
+
+
+
+![App Screenshot](images/image21.png)
+
+
+![App Screenshot](images/image22.png)
+
+
+versioning
+- You can version your files in Amazon S3
+- It is enabled at the bucket level
+- Same key overwrite will change the “version”: 1, 2, 3
+Notes:
+- Any file that is not versioned prior to enabling versioning will have version “null”
+- Suspending versioning does not delete the previous versions
+
+![App Screenshot](images/image23.png)
+
+![App Screenshot](images/image24.png)
+
+
+![App Screenshot](images/image25.png)
+
+
+![App Screenshot](images/image26.png)
+
+
+![App Screenshot](images/image27.png)
+
+
+![App Screenshot](images/image28.png)
+
+
+Amazon S3 – Replication
+- Must enable Versioning in source and destination buckets
+- Cross-Region Replication (CRR)
+- Same-Region Replication (SRR)
+- Buckets can be in different AWS accounts
+-  Copying is asynchronous
+- Must give proper IAM permissions to S3
+
+Replication 
+![App Screenshot](images/image29.png)
+
+
+![App Screenshot](images/image30.png)
+
+
+![App Screenshot](images/image31.png)
+
+
+![App Screenshot](images/image32.png)
+
+
+
+![App Screenshot](images/image33.png)
+
+
+![App Screenshot](images/image34.png)
+
+
+![App Screenshot](images/image35.png)
+
+
+![App Screenshot](images/image36.png)
+
+
+
+![App Screenshot](images/image37.png)
+
+
+
+![App Screenshot](images/image38.png)
+
+
+![App Screenshot](images/image39.png)
+
+
+![App Screenshot](images/image40.png)
+
+
+![App Screenshot](images/image41.png)
