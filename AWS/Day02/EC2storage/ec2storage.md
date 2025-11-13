@@ -112,21 +112,3 @@ AMI Process (from an EC2 instance)
 ![App Screenshot](images/image16.png)
 
 
-![App Screenshot](images/image17.png)
-
-
-
-![App Screenshot](images/image18.png)
-
-
-
-![App Screenshot](images/image19.png)
-
-
-
-![App Screenshot](images/image20.png)
-
-
-![App Screenshot](images/image21.png)
-
-

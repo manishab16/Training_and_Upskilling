@@ -1,0 +1,81 @@
+AMI Overview
+- AMI = Amazon Machine Image
+- AMI are a customization of an EC2 instance
+    - You add your own software, configuration, operating system, monitoring…
+    - Faster boot / configuration time because all your software is pre-packaged
+- AMI are built for a specific region (and can be copied across regions)
+- You can launch EC2 instances from:
+    - A Public AMI: AWS provided
+    - Your own AMI: you make and maintain them yourself
+    - An AWS Marketplace AMI: an AMI someone else made (and potentially sells)
+
+AMI Process (from an EC2 instance) 
+- Start an EC2 instance and customize it 
+- Stop the instance (for data integrity) 
+- Build an AMI – this will also create EBS snapshots 
+- Launch instances from other AMI    
+
+![App Screenshot](images/iamge1.png)
+
+![App Screenshot](images/image2.png)
+
+
+![App Screenshot](images/image3.png)
+
+
+![App Screenshot](images/image4.png)
+
+
+![App Screenshot](images/image5.png)
+
+
+![App Screenshot](images/image6.png)
+
+
+
+![App Screenshot](images/image7.png)
+
+
+![App Screenshot](images/image8.png)
+
+
+![App Screenshot](images/image9.png)
+
+
+EC2 Image Builder
+- Used to automate the creation of Virtual Machines or container images
+- => Automate the creation, maintain, validate and test EC2 AMIs
+- Can be run on a schedule (weekly, whenever packages are updated, etc)
+![App Screenshot](images/image10.png)
+
+![App Screenshot](images/image11.png)
+
+![App Screenshot](images/image12.png)
+
+
+![App Screenshot](images/image13.png)
+
+![App Screenshot](images/image14.png)
+
+
+![App Screenshot](images/image15.png)
+
+![App Screenshot](images/image16.png)
+
+![App Screenshot](images/image17.png)
+
+![App Screenshot](images/image18.png)
+
+![App Screenshot](images/image19.png)
+
+![App Screenshot](images/image20.png)
+
+![App Screenshot](images/image21.png)
+
+![App Screenshot](images/image22.png)
+
+![App Screenshot](images/image23.png)
+
+![App Screenshot](images/image24.png)
+
+![App Screenshot](images/image25.png)

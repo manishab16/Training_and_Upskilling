@@ -34,7 +34,7 @@ Aurora handson
 
 
 
-![App Screenshot](images/image3.png)
+![App Screenshot](images/iamge3.png)
 
 
 

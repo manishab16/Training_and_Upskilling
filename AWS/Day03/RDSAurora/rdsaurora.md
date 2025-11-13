@@ -88,11 +88,4 @@ RDS Custom
     - Install patches
     - Enable native features
     - Access the underlying EC2 Instance using SSH or SSM Session Manager
-    
-![App Screenshot](images/image15.png)
 
-
-![App Screenshot](images/image16.png)
-
-
-![App Screenshot](images/image17.png)
