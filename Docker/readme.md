@@ -1,3 +1,8 @@
+Docker -
+Docker is a platform that allows you to package, ship, and run applications in lightweight, portable containers.
+
+A container = A small, isolated environment that contains:
+
 Why do you need docker?
 - Compatibility/Dependency
 - Long setup time
@@ -60,7 +65,8 @@ Environment Variables
 
 ![App Screenshot](images/image10.png)
 
-
+Docker image -
+A Docker Image is a template or blueprint used to create containers.
 
 How to create my own image?
 Dockerfile
