@@ -314,6 +314,11 @@ VPC in AWS – IPv4
 - Max. CIDR per VPC is 5, for each CIDR:
     - Min. size is /28 (16 IP addresses)
     - Max. size is /16 (65536 IP addresses
+![App Screenshot](images/image43.png)
+
+
+![App Screenshot](images/image44.png)
+
 
 VPC – Subnet (IPv4)
 - AWS reserves 5 IP addresses (first 4 & last 1) in each subnet
@@ -324,4 +329,84 @@ VPC – Subnet (IPv4)
     - 10.0.0.2 – reserved by AWS for mapping to Amazon-provided DNS
     - 10.0.0.3 – reserved by AWS for future use
     - 10.0.0.255 – Network Broadcast Address. AWS does not support broadcast in a VPC therefore the address is reserved
-       
+
+![App Screenshot](images/image45.png)
+
+
+![App Screenshot](images/image46.png)
+
+
+VPC IP Address Manager (IPAM)
+- Centrally plan, track, and monitor your IP address spaces
+- Single source-of-truth for all IP address information
+- Automate IP address allocations across 100s of accounts and VPCs
+- IPAM Scope – top-level container that encapsulates the IP address space (two default scopes public & private)
+- IP Pool – collection of IP address ranges (CIDRs) that can be divided into sub-pools for Regional IP Pools
+
+Internet Gateway (IGW)
+- Allows resources (e.g., EC2 instances) in a VPC connect to the Internet
+- It scales horizontally and is highly available and redundant
+- Must be created separately from a VPC
+- One VPC can only be attached to one IGW and vice versa
+
+Internet Gateways & Route Tables
+![App Screenshot](images/image47.png)
+
+![App Screenshot](images/image48.png)
+
+![App Screenshot](images/image49.png)
+
+![App Screenshot](images/image50.png)
+
+
+![App Screenshot](images/image51.png)
+
+
+![App Screenshot](images/image52.png)
+
+
+![App Screenshot](images/image53.png)
+
+
+![App Screenshot](images/image54.png)
+
+
+![App Screenshot](images/image55.png)
+
+
+![App Screenshot](images/image56.png)
+
+
+![App Screenshot](images/image57.png)
+
+
+![App Screenshot](images/image58.png)
+
+
+![App Screenshot](images/image59.png)
+
+
+![App Screenshot](images/image60.png)
+
+
+![App Screenshot](images/image61.png)
+
+connected to ec2
+![App Screenshot](images/image62.png)
+
+
+VPC Peering 
+- Privately connect two VPCs using AWS’ network
+- Make them behave as if they were in the same network
+- Must not have overlapping CIDRs
+- You can create VPC Peering connection between VPCs in different AWS accounts/region
+
+
+AWS Network Firewall
+- Protect your entire Amazon VPC
+- From Layer 3 to Layer 7 protection 
+- Any direction, you can inspect
+- VPC to VPC traffic
+- Outbound to internet
+- Inbound from internet
+- To / from Direct Connect & Site-to-Site VPN

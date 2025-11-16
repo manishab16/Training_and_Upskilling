@@ -123,7 +123,22 @@ Can be triggered
 ![App Screenshot](images/image34.png)
 
 
+SSM Parameter Store
+- Secure storage for configuration and secrets
+- Optional Seamless Encryption using KMS
+- Serverless, scalable, durable, easy SDK
+- Version tracking of configurations / secrets
+- Security through IAM
+- Notifications with Amazon EventBridge
+- Integration with CloudFormation
 
-
-
-
+SSM Parameter Store Hierarchy
+- /my-department/
+    - my-app/
+        -dev/
+            - db-url
+            - db-password
+        - prod/
+            - db-url
+            - db-password
+    - other-app/        
