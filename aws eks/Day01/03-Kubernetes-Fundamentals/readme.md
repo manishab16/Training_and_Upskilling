@@ -1,5 +1,5 @@
 Kubernates
-Kubernetes is a portable, extensible, open source platform for managing container workloads.
+- Kubernetes is a portable, extensible, open source platform for managing container workloads.
 
 
 Master
