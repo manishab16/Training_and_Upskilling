@@ -41,3 +41,51 @@ Worker Nodes
     - It maintains network rules on nodes
     - In short, these network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
 
+Kubernates fundamentals -
+![App Screenshot](images/image1.png)
+
+Kubernetes - Imperative & Declarative
+![App Screenshot](images/image2.png)
+
+Kubernetes POD -
+- With Kubernetes our core goal will be to deploy our applications in the form of containers on worker nodes in a k8s cluster. 
+- Kubernetes does not deploy containers directly on the worker nodes.
+- Container is encapsulated in to a Kubernetes Object named POD.
+- A POD is a single instance of an application
+- A POD is the smallest object that we can create in Kubernetes
+- PODs generally have one to one relationship with containers. 
+- To scale up we create new POD and to scale down we delete the POD. 
+- We cannot have multiple containers of same kind in a single POD. 
+- Example: Two NGINX containers in single POD serving same purpose is not recommended. 
+
+
+Kubernetes – Multi-Container Pods
+- We can have multiple containers in a single POD, provided they are not of same kind.
+- Helper Containers (Side-car)
+    - Data Pullers: Pull data required by Main Container
+    - Data pushers: Push data by collecting from main container (logs)
+    - Proxies: Writes static data to html files using Helper container and Reads using Main Container. 
+- Communication
+    - The two containers can easily communicate with each other easily as they share same network space.
+    - They can also easily share same storage space. 
+- Multi-Container Pods is a rare use-case and we will try to focus on core fundamentals. 
+
+Kubernetes Pods Demo
+Create a Pod
+![App Screenshot](images/image3.png)
+
+List Pods
+kubectl get pods
+kubectl get po
+![App Screenshot](images/image4.png)
+
+
+Describe Pod
+kubectl describe pod <Pod-Name>
+![App Screenshot](images/image5.png)
+
+
+![App Screenshot](images/image6.png)
+
+
+
