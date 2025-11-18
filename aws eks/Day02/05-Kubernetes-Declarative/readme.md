@@ -130,4 +130,49 @@ http://<WorkerNode-Public-IP>:31231
 ![App Screenshot](images/image4.png)
 
 
+Create ReplicaSets using YAML
+- replicaset-definition.yml
+- Create ReplicaSet with 3 Replicas
+#  Create ReplicaSet
+kubectl apply -f 02-replicaset-definition.yml
+# List Replicasets
+kubectl get rs
+![App Screenshot](images/image5.png)
 
+-Delete a pod
+- ReplicaSet immediately creates the pod.
+# List Pods
+kubectl get pods
+# Delete Pod
+kubectl delete pod <Pod-Name>
+![App Screenshot](images/image6.png)
+
+
+![App Screenshot](images/image7.png)
+
+
+Create NodePort Service for ReplicaSet
+apiVersion: v1
+kind: Service
+metadata:
+  name: replicaset-nodeport-service
+spec:
+  type: NodePort
+  selector:
+    app: myapp2
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 31232  
+
+- Create NodePort Service for ReplicaSet & Test
+# Create NodePort Service
+kubectl apply -f 03-replicaset-nodeport-servie.yml
+
+# List NodePort Service
+kubectl get svc
+
+# Get Public IP
+kubectl get nodes -o wide
+![App Screenshot](images/image8.png)
