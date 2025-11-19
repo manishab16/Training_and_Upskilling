@@ -68,3 +68,17 @@ kubectl get pods
 ![App Screenshot](images/image11.png)
 
 ![App Screenshot](images/image12.png)
+
+
+
+![App Screenshot](images/image13.png)
+
+Connect to MySQL Database
+![App Screenshot](images/image14.png)
+
+# Connect to MYSQL Database
+kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -pdbpassword11
+![App Screenshot](images/image15.png)
+
+
+![App Screenshot](images/image16.png)
