@@ -1,0 +1,98 @@
+AWS loadbalancer
+Create EKS Node Group in Private Subnets
+- We are going to create a node group in VPC Private Subnets
+- We are going to deploy workloads on the private node group wherein workloads will be running private subnets and load balancer gets created in public subnet and accessible via internet.
+
+Delete existing Public Node Group in EKS Cluster
+# Get NodeGroups in a EKS Cluster
+eksctl get nodegroup --cluster=<Cluster-Name>
+eksctl get nodegroup --cluster=eksdemo1
+
+# Delete Node Group - Replace nodegroup name and cluster name
+eksctl delete nodegroup <NodeGroup-Name> --cluster <Cluster-Name>
+eksctl delete nodegroup eksdemo1-ng-public1 --cluster eksdemo1
+![App Screenshot](images/image1.png)
+
+Create EKS Node Group in Private Subnets
+- Create Private Node Group in a Cluster
+- Key option for the command is --node-private-networking
+
+eksctl create nodegroup --cluster=eksdemo1 \
+                        --region=eu-west-1 \
+                        --name=eksdemo1-ng-private1 \
+                        --node-type=t3.medium \
+                        --nodes-min=2 \
+                        --nodes-max=4 \
+                        --node-volume-size=20 \
+                        --ssh-access \
+                        --ssh-public-key=kube-demo \
+                        --managed \
+                        --asg-access \
+                        --external-dns-access \
+                        --full-ecr-access \
+                        --appmesh-access \
+                        --alb-ingress-access \
+                        --node-private-networking
+
+![App Screenshot](images/image2.png)
+
+![App Screenshot](images/image3.png)
+
+
+Verify if Node Group created in Private Subnets
+- External IP Address should be none if our Worker Nodes created in Private Subnets
+kubectl get nodes -o wide
+![App Screenshot](images/image4.png)
+
+![App Screenshot](images/image5.png)
+
+![App Screenshot](images/image6.png)
+
+EKS with Classic Load Balancers
+Create AWS Classic Load Balancer Kubernetes Manifest & Deploy
+04-ClassicLoadBalancer.yml
+Deploy all Manifest
+kubectl apply -f kube-manifests/
+![App Screenshot](images/image7.png)
+
+![App Screenshot](images/image8.png)
+
+Verify the deployment
+- Verify if new CLB got created
+- Go to Services -> EC2 -> Load Balancing -> Load BalancersCLB should be created
+- Copy DNS Name (Example: a85ae6e4030aa4513bd200f08f1eb9cc-7f13b3acc1bcaaa2.elb.us-east-1.amazonaws.com)
+- Go to Services -> EC2 -> Load Balancing -> Target Groups
+![App Screenshot](images/image9.png)
+
+
+Access Application
+# Access Application
+http://<CLB-DNS-NAME>/usermgmt/health-status
+![App Screenshot](images/image10.png)
+
+
+EKS with Network Load Balancers Demo
+Create AWS Network Load Balancer Kubernetes Manifest & Deploy
+04-NetworkLoadBalancer.yml
+
+Deploy all Manifest
+kubectl apply -f kube-manifests/
+![App Screenshot](images/image11.png)
+# Verify Pods
+kubectl get pods
+![App Screenshot](images/image12.png)
+
+- Verify the deployment
+Verify if new CLB got created
+Go to Services -> EC2 -> Load Balancing -> Load Balancers
+CLB should be created
+Copy DNS Name (Example: a85ae6e4030aa4513bd200f08f1eb9cc-7f13b3acc1bcaaa2.elb.us-east-1.amazonaws.com)
+Go to Services -> EC2 -> Load Balancing -> Target Groups
+Verify the health status, we should see active.
+![App Screenshot](images/image13.png)
+
+Access Application
+# Access Application
+http://<NLB-DNS-NAME>/usermgmt/health-status
+![App Screenshot](images/image14.png)
+

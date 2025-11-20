@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  type: ExternalName
+  externalName: usermgntdb.cluster-czwkq0wuiofk.eu-west-1.rds.amazonaws.com
+
+  
