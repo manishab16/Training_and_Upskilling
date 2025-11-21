@@ -1,0 +1,36 @@
+ALB-Ingress-ContextPath-Based-Routing
+Review Nginx App1, App2 & App3 Deployment & Service
+
+ Create ALB Ingress Context path based Routing Kubernetes manifest
+04-ALB-Ingress-ContextPath-Based-Routing.yml
+
+ Deploy all manifests and test
+ # Deploy Kubernetes manifests
+kubectl apply -f kube-manifests/
+![App Screenshot](images/image1.png)
+
+
+![App Screenshot](images/image2.png)
+# List Pods
+kubectl get pods
+
+# List Services
+kubectl get svc
+
+# List Ingress Load Balancers
+kubectl get ingress
+![App Screenshot](images/image3.png)
+
+
+![App Screenshot](images/image4.png)
+
+# Verify AWS Load Balancer Controller logs
+kubectl -n kube-system  get pods 
+kubectl -n kube-system logs -f aws-load-balancer-controller-794b7844dd-8hk7n 
+![App Screenshot](images/image5.png)
+
+Verify Application Load Balancer on AWS Management Console**
+![App Screenshot](images/image6.png)
+
+![App Screenshot](images/image7.png)
+
