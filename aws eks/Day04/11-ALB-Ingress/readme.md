@@ -83,3 +83,6 @@ eksctl  get iamserviceaccount --cluster eksdemo1
 
 -Verify CloudFormation Template eksctl created & IAM Role
 ![App Screenshot](images/image12.png)
+
+
+![App Screenshot](images/image13.png)
