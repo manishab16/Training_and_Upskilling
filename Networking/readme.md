@@ -106,26 +106,26 @@ Hubs, Bridges, and Switches-
 
 
 Overview of OSI Layers
-• Layer 1: Physical Layer
-    o Deals with the physical connection between devices through cables, switches, and other hardware.
-    o Involves the transmission and reception of raw bit streams over a physical medium.
-• Layer 2: Data Link Layer
-    o Manages node-to-node communication and error handling in the immediate link.
-    o Uses MAC addresses for device identification on the local network, crucial for Ethernet networks.
-• Layer 3: Network Layer
-    o Responsible for packet forwarding including routing through intermediate routers.
-    o Utilizes IP addresses to identify devices across networks, ensuring data reaches its correct destination.
-• Layer 4: Transport Layer
-    o Manages end-to-end communication and data flow control across the network.
-    o Protocols like TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) operate at this layer, handling things like data segmentation and reliable transmission.
-• Layer 5: Session Layer
-    o Controls dialogues (sessions) between computers, managing the setup, maintenance, and termination of connections.
-• Layer 6: Presentation Layer
-    o Translates data between the application layer and the network.
-    o Ensures data is in the usable format and may encrypt/decrypt data for security.
-• Layer 7: Application Layer
-    o Closest to the end-user, this layer includes applications that interact with the network.
-    o Handles high-level protocols, including HTTP for web browsing
+- Layer 1: Physical layer
+    -Deals with the physical connection between devices through cables, switches, and other hardware.
+    -Involves the transmission and reception of raw bit streams over a physical medium.
+- Layer 2: Data Link Layer
+    - Manages node-to-node communication and error handling in the immediate link.
+    - Uses MAC addresses for device identification on the local network, crucial for Ethernet networks.
+- Layer 3: Network Layer
+    - Responsible for packet forwarding including routing through intermediate routers.
+    - Utilizes IP addresses to identify devices across networks, ensuring data reaches its correct destination.
+- Layer 4: Transport Layer
+    - Manages end-to-end communication and data flow control across the network.
+    - Protocols like TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) operate at this layer, handling things like data segmentation and reliable transmission.
+- Layer 5: Session Layer
+    - Controls dialogues (sessions) between computers, managing the setup, maintenance, and termination of connections.
+- Layer 6: Presentation Layer
+    - Translates data between the application layer and the network.
+    - Ensures data is in the usable format and may encrypt/decrypt data for security.
+- Layer 7: Application Layer
+    - Closest to the end-user, this layer includes applications that interact with the network.
+    - Handles high-level protocols, including HTTP for web browsing
 
 ![App Screenshot](images/image1.png)
 
@@ -550,4 +550,17 @@ Scaling
 - Load balancers enable horizontal scaling: adding more servers or containers increases capacity.
 - They distribute workloads dynamically as demand grows.
 
+
+
+Public vs. Private IP Addresses
+- Public and private IP addresses serve distinct purposes in networking, similar to phone numbers used within and outside a business organization.
+
+
+Private IP Address Ranges:
+- Private IP address ranges, such as 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16, are reserved for internal use and are not routable on the internet.
+- These addresses are utilized within organizations to accommodate the growing number of devices without exhausting the limited pool of public IP addresses.
+
+Network Address Translation (NAT):
+- NAT enables devices with private IP addresses to access the internet by translating them to a public IP address.
+- A router with NAT functionality replaces the private IP address with a public one, allowing communication with internet resources.
 
