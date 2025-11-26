@@ -13,8 +13,8 @@
 Python Basics- 
 - Print statements
     - example -
-        print("Hello Manisha")
-        print(10)
+        print("Hello Manisha"),
+        print(10), 
         print("Python", "Beginners")
 
 
@@ -39,9 +39,9 @@ Python Basics-
 1. if
 - example -
 age = 18
+if age >= 18:
+    print("You can vote")
 
-- if age >= 18:
--    print("You can vote")
 
 
 
@@ -49,10 +49,11 @@ age = 18
 2. if / else
 - num = 5
 
-- if num % 2 == 0:
--    print("Even")
-- else:
--    print("Odd")
+if num % 2 == 0:
+    print("Even")
+ else:
+    print("Odd")
+
 
 
 
@@ -67,6 +68,8 @@ if marks >= 90:
     print("B grade")
  else:
     print("C grade")
+
+
 
 
 
@@ -87,11 +90,15 @@ if marks >= 90:
 
 
 
+
+
 3. Looping through lists
 - fruits = ["apple", "banana", "mango"]
 
 for f in fruits:
     print(f)
+
+
 
 
 
@@ -108,10 +115,15 @@ for f in fruits:
 
 
 
+
+
+
 - Tuples
 - Tuples are immutable (cannot be changed).
--colors = ("red", "green", "blue")
--print(colors[0])
+colors = ("red", "green", "blue")
+print(colors[0])
+
+
 
 
 
@@ -119,12 +131,14 @@ for f in fruits:
 
 
 - Dictionaries
-- student = {
+ student = {
     "name": "Manisha",
     "age": 25,
     "marks": 88
    }
  print(student["name"])
+
+
 
 
 
