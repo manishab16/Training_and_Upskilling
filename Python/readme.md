@@ -8,16 +8,23 @@
     - mutiplication = 3 * 8
 
 
+
+
 Python Basics- 
 - Print statements
     - example -
-    -    print("Hello Manisha")
-    -   print(10)
-    -   print("Python", "Beginners")
+        print("Hello Manisha")
+        print(10)
+        print("Python", "Beginners")
+
+
+
 
 - Input from User
     - name = input("Enter your name: ")
     - print("Hello", name)
+
+
 
 
 - String -
@@ -27,13 +34,15 @@ Python Basics-
 
 
 
+
 - Conditional Statements
 1. if
 - example -
-- age = 18
+age = 18
 
 - if age >= 18:
 -    print("You can vote")
+
 
 
 
@@ -47,24 +56,27 @@ Python Basics-
 
 
 
+
+
 3. if / elif / else
 - marks = 85
 
-- if marks >= 90:
--    print("A grade")
-- elif marks >= 75:
--    print("B grade")
-- else:
--    print("C grade")
+if marks >= 90:
+    print("A grade")
+ elif marks >= 75:
+    print("B grade")
+ else:
+    print("C grade")
 
 
 
 - Loops
 1. while loop
 - i = 1
-- while i <= 5:
--    print(i)
--    i += 1
+ while i <= 5:
+    print(i)
+    i += 1
+
 
 
 
@@ -74,11 +86,14 @@ Python Basics-
 
 
 
+
 3. Looping through lists
 - fruits = ["apple", "banana", "mango"]
 
-- for f in fruits:
--    print(f)
+for f in fruits:
+    print(f)
+
+
 
 
 
@@ -89,6 +104,10 @@ Python Basics-
 
 
 
+
+
+
+
 - Tuples
 - Tuples are immutable (cannot be changed).
 -colors = ("red", "green", "blue")
@@ -96,21 +115,27 @@ Python Basics-
 
 
 
+
+
+
 - Dictionaries
 - student = {
--    "name": "Manisha",
--    "age": 25,
--    "marks": 88
--   }
-- print(student["name"])
+    "name": "Manisha",
+    "age": 25,
+    "marks": 88
+   }
+ print(student["name"])
+
+
+
 
 
 
 
 - Functions
 1 simple function
-    - def greet():
-    -    print("Hello!")
+     def greet():
+        print("Hello!")
 
 
 
