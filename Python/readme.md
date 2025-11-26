@@ -32,30 +32,30 @@ Python Basics-
 - example -
 - age = 18
 
-if age >= 18:
-    print("You can vote")
+- if age >= 18:
+-    print("You can vote")
 
 
 
 2. if / else
 - num = 5
 
-if num % 2 == 0:
-    print("Even")
-else:
-    print("Odd")
+- if num % 2 == 0:
+-    print("Even")
+- else:
+-    print("Odd")
 
 
 
 3. if / elif / else
 - marks = 85
 
-if marks >= 90:
-    print("A grade")
-elif marks >= 75:
-    print("B grade")
-else:
-    print("C grade")
+- if marks >= 90:
+-    print("A grade")
+- elif marks >= 75:
+-    print("B grade")
+- else:
+-    print("C grade")
 
 
 
@@ -81,9 +81,12 @@ else:
 -    print(f)
 
 
+
+
 - Lists
 1. Create list
 - names = ["manisha", "amit", "john"]
+
 
 
 - Tuples
@@ -92,20 +95,22 @@ else:
 -print(colors[0])
 
 
-- Dictionaries
--student = {
-    "name": "Manisha",
-    "age": 25,
-    "marks": 88
-}
 
+- Dictionaries
+- student = {
+-    "name": "Manisha",
+-    "age": 25,
+-    "marks": 88
+-   }
 - print(student["name"])
+
+
 
 
 - Functions
 1 simple function
-- def greet():
--    print("Hello!")
+    - def greet():
+    -    print("Hello!")
 
 
 
