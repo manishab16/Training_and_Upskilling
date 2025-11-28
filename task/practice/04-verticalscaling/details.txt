@@ -1,0 +1,5 @@
+EC2 instance
+Security group
+Lambda + IAM role
+2 CloudWatch alarms
+EventBridge rule + target + permission

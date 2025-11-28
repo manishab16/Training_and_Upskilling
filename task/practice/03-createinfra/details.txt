@@ -1,0 +1,8 @@
+It will create:
+1.Security groups
+2.ALB + Target Group + Listener
+3.Launch template
+4.Auto Scaling Group (2 EC2 instances)
+
+
+
