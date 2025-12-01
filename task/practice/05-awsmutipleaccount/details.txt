@@ -1,0 +1,5 @@
+✅ One central AWS Organization root account
+✅ Multiple member accounts (Logging, Dev, QA, etc.)
+✅ Organizational Units (Security, Workloads, Infrastructure, Sandbox)
+✅ Service Control Policy (SCP) to restrict regions
+
