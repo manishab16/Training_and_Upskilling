@@ -1,0 +1,1 @@
+teams = ["team-a", "team-b"]
