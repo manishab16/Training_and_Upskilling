@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Start backend
+cd backend
+uvicorn main:app --reload &
+
+# Start frontend
+cd ../frontend
+npm start

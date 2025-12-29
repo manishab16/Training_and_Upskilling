@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+sqlalchemy
+requests
+openai
+boto3
